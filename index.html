@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Notes</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    
+    <header>
+        <section class="header-section">
+            <a href="#main-note">Notes</a>
+            <nav>
+                <ul>
+                    <li><a href="#main-trash">Trash</a></li>
+                </ul>
+            </nav>
+        </section>
+    </header>
+
+    <main class="main-note" id="main-note">
+        <section class="note" id="note">
+            <article>
+                <input type="text" class="title" name="title" id="title" placeholder="Title">
+                <textarea name="note" class="note-text" id="note-text" cols="30" rows="10" placeholder="Note..."></textarea>
+                <span class="tooltiptext" id="tooltiptext">both field must be filled</span>
+                <button class="save-button" id="save-button">Save</button>
+            </article>
+        </section>
+
+        <section class="notes" id="notes"></section>
+
+        <div class="deleted-modal" id="deleted-modal">
+            <div class="deleted-modal-content" id="deleted-modal-content">
+                <p>The note has moved to trash...</p>
+            </div>
+        </div>
+    </main>
+
+    <main class="main-trash" id="main-trash">
+        <section class="trash" id="trash"></section>
+        <div class="modal" id="modal">
+            <div class="modal-content" id="modal-content">
+                <span class="close" id="close" onclick="modal.style.display = 'none'">&times;</span>
+                <p>Are you sure you want to delete this note?</p>
+                <button class="finally-delete-note" id="finally-delete-note" onclick="modal.style.display = 'none'">Yes</button>
+                <button class="cancel-delete" id="cancel-delete" onclick="modal.style.display = 'none'">No</button>
+            </div>
+        </div>
+    </main>
+    <footer></footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
