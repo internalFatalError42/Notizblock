@@ -12,7 +12,6 @@ let trash = document.getElementById('trash');
 let noteList = [];
 let trashList = [];
 
-//todo: popup für delete mit der notiz das die note im trash ist
 class Note {
     constructor(title, note) {
         this.title = title;
