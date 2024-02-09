@@ -174,27 +174,7 @@ const saveNote = (index) => {
     let saveButton = document.getElementsByClassName('save-edit-button')[index];
     let savedNote = document.getElementsByClassName('saved-note')[index];
 
-    if (note.value === '') {
-        note.value = noteList[index].note;
-        savedNote.innerHTML += /*html*/`
-            <span class="notestooltiptext" on>both field must be filled</span>
-        `;
-        let tooltip = savedNote.lastElementChild;
-        setTimeout(() => {
-            tooltip.style.visibility = 'hidden';
-        }, 3_000);
-    }
-    
-    if (title.value === '') {
-        title.value = noteList[index].title;
-        savedNote.innerHTML += /*html*/`
-            <span class="notestooltiptext">both field must be filled</span>
-        `;
-        let tooltip = savedNote.lastElementChild;
-        setTimeout(() => {
-            tooltip.style.visibility = 'hidden';
-        }, 3_000);
-    }
+    validateInput(index, note, title, savedNote);
 
     saveButton.style.visibility = 'hidden';
     note.setAttribute('disabled', true);
@@ -206,6 +186,30 @@ const saveNote = (index) => {
     localStorage.setItem('note', JSON.stringify(noteList));
 };
 
+
+const validateInput = (index, note, title, savedNote) => {
+    let isEmpty = false;
+
+    if (title.value === '') {
+        title.value = noteList[index].title;
+        isEmpty = true;
+    }
+
+    if (note.value === '') {
+        note.value = noteList[index].note;
+        isEmpty = true;
+    }
+
+    if (isEmpty) {
+        savedNote.innerHTML += /*html*/`
+            <span class="notestooltiptext" on>both field must be filled</span>
+        `;
+        let tooltip = savedNote.lastElementChild;
+        setTimeout(() => {
+            tooltip.style.visibility = 'hidden';
+        }, 3_000);
+    }
+};
 
 const loadNotes = () => {
     if (!localStorage.getItem('note')) {
