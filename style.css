@@ -201,6 +201,11 @@ header {
                 color: white;
                 cursor: pointer;
                 width: 33%;
+
+                &:hover {
+                    background-color: #e2e2e2;
+                    color: black;
+                }
             }
         }
     }
@@ -303,6 +308,7 @@ header {
 
                     &:hover {
                         background-color: #e2e2e2;
+                        color: black;
                     }
                 }
             }
@@ -321,10 +327,11 @@ header {
 
         .deleted-modal-content {
             background-color: #1E1F22;
-            margin: 15% auto;
+            margin: 68px auto;
             padding: 20px;
             border: 1px solid #888;
-            width: 80%;
+            width: 50%;
+            text-align: center;
         
             p {
                 color: white;
@@ -433,10 +440,11 @@ header {
 
         .modal-content {
             background-color: #1E1F22;
-            margin: 15% auto;
+            margin: 68px auto;
             padding: 20px;
             border: 1px solid #888;
-            width: 80%;
+            width: 50%;
+            text-align: center;
 
             p {
                 color: white;

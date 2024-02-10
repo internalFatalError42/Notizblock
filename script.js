@@ -151,7 +151,6 @@ const deleteNote = (index) => {
     setTimeout(() => {
         deletedModal.style.display = 'none';
     }, 3_000);
-
 };
 
 
@@ -171,8 +170,10 @@ const editNote = (index) => {
 const saveNote = (index) => {
     let note = document.getElementsByClassName('saved-text')[index];
     let title = document.getElementsByClassName('saved-title')[index];
-    let saveButton = document.getElementsByClassName('save-edit-button')[index];
     let savedNote = document.getElementsByClassName('saved-note')[index];
+    let editButton = document.getElementsByClassName('edit-button')[index];
+    let deleteButton = document.getElementsByClassName('delete-button')[index];
+    let saveButton = document.getElementsByClassName('save-edit-button')[index];
 
     validateInput(index, note, title, savedNote);
 
@@ -184,6 +185,10 @@ const saveNote = (index) => {
     noteList[index].title = title.value;
 
     localStorage.setItem('note', JSON.stringify(noteList));
+
+    editButton.style.visibility = 'hidden';
+    deleteButton.style.visibility = 'hidden';
+    saveButton.style.visibility = 'hidden';
 };
 
 
